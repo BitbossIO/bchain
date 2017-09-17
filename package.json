@@ -1,0 +1,47 @@
+{
+	"name": "bchain",
+	"version": "1.0.0",
+	"description": "bitcoin and multichain api utilizing ts and rxjs",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/BitbossIO/bchain.git"
+	},
+	"devDependencies": {
+		"@types/bluebird": "^3.5.11",
+		"@types/core-js": "^0.9.43",
+		"@types/node": "^8.0.28",
+		"@types/ramda": "0.24.11",
+		"gulp": "^3.9.1",
+		"gulp-debug": "^2.1.2",
+		"gulp-inject": "^1.5.0",
+		"gulp-rimraf": "^0.1.1",
+		"gulp-sourcemaps": "^1.5.1",
+		"gulp-tslint": "^8.1.2",
+		"gulp-typescript": "^3.2.2",
+		"tslint": "^5",
+		"typescript": "^2.5.2"
+	},
+	"keywords": [
+		"bitcoin",
+		"multichain",
+		"rxjs",
+		"typescript"
+	],
+	"author": "BitBoss.io",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/BitbossIO/bchain/issues"
+	},
+	"homepage": "https://github.com/BitbossIO/bchain#readme",
+	"dependencies": {
+		"@akanass/rx-http-request": "^2.6.0",
+		"del": "^3.0.0",
+		"fs": "0.0.1-security",
+		"ramda": "^0.24.1",
+		"rxjs": "^5.4.3"
+	}
+}
