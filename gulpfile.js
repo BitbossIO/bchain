@@ -8,7 +8,7 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     del = require('del'),
     Config = require('./gulpfile.config'),
-    tsProject = tsc.createProject('typings.json')
+    tsProject = tsc.createProject('tsconfig.json')
     ;
 
 var config = new Config();
