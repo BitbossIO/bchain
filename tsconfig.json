@@ -5,5 +5,15 @@
 	  "lib": ["es2017", "dom"],
 	  "module": "commonjs",
 	  "moduleResolution": "node"
+  },
+  "exclude": [
+    "node_modules",
+    "dist/",
+    "test/"
+  ],
+  "paths": {
+    "*": [
+      "typings/*"
+    ]
   }
 }

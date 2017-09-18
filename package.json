@@ -2,9 +2,11 @@
 	"name": "bchain",
 	"version": "1.0.0",
 	"description": "bitcoin and multichain api utilizing ts and rxjs",
-	"main": "index.js",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"prepare": "tsc -p ./ --outDir dist/ --declaration"
 	},
 	"repository": {
 		"type": "git",
