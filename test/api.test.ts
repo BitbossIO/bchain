@@ -1,10 +1,11 @@
-import bChain from './lib/bchain';
+import { BChain } from '../src/index';
 import * as Rx from 'rxjs/Rx';
 import { Observable } from 'rxjs';
 import * as R from 'ramda';
 
 
-var bchain = new bChain({ username:'multichainrpc', password:'6FvcobcXbS2UPXEmkVBof32B15fNMR9UPhVtUzvq6CCP' });
+var bchain = new BChain({ username:'multichainrpc', password:'6FvcobcXbS2UPXEmkVBof32B15fNMR9UPhVtUzvq6CCP' });
+
 class MyObserver implements Rx.Observer < any > {
 	constructor(public name) {}
 	complete(): void {
@@ -39,6 +40,3 @@ function runUnimplementedTests() {
 }
 
 runRxjsTests();
-
-bchain.undefinedFunctions.forEach(x => console.log('\t'+x));
-
