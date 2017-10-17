@@ -1,1 +1,1 @@
-module.exports = require("./lib/rpccall.js");
+module.exports = require("./dist/index");

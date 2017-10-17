@@ -1,10 +1,11 @@
-import bChain from './lib/bchain';
+import { BChain } from '../src/index';
 import * as Rx from 'rxjs/Rx';
 import { Observable } from 'rxjs';
 import * as R from 'ramda';
 
 
-var bchain = new bChain({ username:'multichainrpc', password:'6FvcobcXbS2UPXEmkVBof32B15fNMR9UPhVtUzvq6CCP' });
+var bchain = new BChain({ username:'multichainrpc', password:'6FvcobcXbS2UPXEmkVBof32B15fNMR9UPhVtUzvq6CCP' });
+
 class MyObserver implements Rx.Observer < any > {
 	constructor(public name) {}
 	complete(): void {
@@ -27,7 +28,6 @@ function runBasicTests() {
 function runRxjsTests() {
 	let getAssets = R.map((x: any) => x.vout[0].assets); 
 	bchain.searchRawTransactions('1Ur2ph9i9uSHM2c5WKHctB15qDrSPQ5bu9gM4c')
-		.map(x => x.result)
 		.map(getAssets)
 		.subscribe(new MyObserver('searchRawTransactions'));
 }
@@ -39,6 +39,3 @@ function runUnimplementedTests() {
 }
 
 runRxjsTests();
-
-bchain.undefinedFunctions.forEach(x => console.log('\t'+x));
-

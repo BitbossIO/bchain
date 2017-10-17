@@ -1,0 +1,161 @@
+== Blockchain ==
+getbestblockhash
+getblock "hash"|height ( verbose )
+getblockchaininfo
+getblockcount
+getblockhash index
+getchaintips
+getdifficulty
+getmempoolinfo
+getrawmempool ( verbose )
+gettxout "txid" n ( includemempool )
+gettxoutsetinfo
+listassets ( asset-identifier(s) verbose count start )
+listblocks block-set-identifier ( verbose )
+listpermissions ( "permission(s)" address(es) verbose )
+liststreams ( stream-identifier(s) verbose count start )
+listupgrades (upgrade-identifier(s))
+verifychain ( checklevel numblocks )
+
+== Control ==
+clearmempool 
+getblockchainparams ( displaynames )
+getinfo
+getruntimeparams 
+help ( command )
+pause "task(s)" 
+resume "task(s)" 
+setlastblock ( "hash"|height )
+setruntimeparam "parameter-name" parameter-value 
+stop
+
+== Generating ==
+getgenerate
+gethashespersec
+setgenerate generate ( genproclimit )
+
+== Mining ==
+getblocktemplate ( "jsonrequestobject" )
+getmininginfo
+getnetworkhashps ( blocks height )
+prioritisetransaction txid priority-delta fee-delta
+submitblock hexdata ( "jsonparametersobject" )
+
+== Network ==
+addnode "node" "add"|"remove"|"onetry"
+getaddednodeinfo dns ( "node" )
+getconnectioncount
+getnettotals
+getnetworkinfo
+getpeerinfo
+ping
+
+== Rawtransactions ==
+appendrawchange "tx-hex" "address" ( native-fee )
+appendrawdata tx-hex data-hex|object 
+appendrawtransaction "tx-hex" [{"txid":"id","vout":n},...] ( {"address":amount,...} [data] "action" ) 
+createrawtransaction [{"txid":"id","vout":n},...] {"address":amount,...} ( [data] "action" ) 
+decoderawtransaction "tx-hex"
+decodescript script-hex
+getrawtransaction "txid" ( verbose )
+searchrawtransactions <address> [verbose=1] [skip=0] [count=100]
+sendrawtransaction "tx-hex" ( allowhighfees )
+signrawtransaction "tx-hex" ( [{"txid":"id","vout":n,"scriptPubKey":"hex","redeemScript":"hex"},...] ["privatekey1",...] sighashtype )
+
+== Util ==
+createkeypairs ( count )
+createmultisig nrequired keys
+estimatefee nblocks
+estimatepriority nblocks
+validateaddress "address"
+verifymessage "address" "signature" "message"
+
+== Wallet ==
+addmultisigaddress nrequired keys ( "account" )
+appendrawexchange "hex" "txid" vout ask-assets 
+approvefrom "from-address" "upgrade-identifier" ( approve )
+backupwallet "destination"
+combineunspent ( "address(es)" minconf maxcombines mininputs maxinputs maxtime )
+completerawexchange hex txid vout ask-assets ( "data-hex"|object ) 
+create "entity-type" "entity-name" open ( custom-fields )
+createfrom "from-address" "entity-type" "entity-name" open ( custom-fields )
+createrawexchange "txid" vout ask-assets
+createrawsendfrom "from-address" {"address":amount,...} ( [data] "action" ) 
+decoderawexchange "tx-hex" ( verbose )
+disablerawtransaction "tx-hex"
+dumpprivkey "address"
+dumpwallet "filename"
+encryptwallet "passphrase"
+getaccount "address"
+getaccountaddress "account"
+getaddressbalances "address" ( minconf includeLocked ) 
+getaddresses ( verbose )
+getaddressesbyaccount "account"
+getaddresstransaction "address" "txid" ( verbose )
+getassetbalances ( "account" minconf includeWatchonly includeLocked )
+getassettransaction "asset-identifier" "txid" ( verbose )
+getbalance ( "account" minconf includeWatchonly )
+getmultibalances ( address(es) assets minconf includeLocked includeWatchonly ) 
+getnewaddress ( "account" )
+getrawchangeaddress
+getreceivedbyaccount "account" ( minconf )
+getreceivedbyaddress "address" ( minconf )
+getstreamitem "stream-identifier" "txid" ( verbose )
+gettotalbalances ( minconf includeWatchonly includeLocked )
+gettransaction "txid" ( includeWatchonly )
+gettxoutdata "txid" vout ( count-bytes start-byte )
+getunconfirmedbalance
+getwalletinfo
+getwallettransaction "txid" ( includeWatchonly verbose )
+grant "address(es)" "permission(s)" ( native-amount startblock endblock "comment" "comment-to" )
+grantfrom "from-address" "to-address(es)" "permission(s)" ( native-amount startblock endblock "comment" "comment-to" )
+grantwithdata "address(es)" "permission(s)" "data-hex"|object ( native-amount startblock endblock )
+grantwithdatafrom "from-address" "to-address(es)" "permission(s)" "data-hex"|object ( native-amount startblock endblock )
+importaddress address(es) ( "label" rescan )
+importprivkey privkey(s) ( "label" rescan )
+importwallet "filename"
+issue "address" "asset-name"|asset-params quantity ( smallest-unit native-amount custom-fields )
+issuefrom "from-address" "to-address" "asset-name"|asset-params quantity ( smallest-unit native-amount custom-fields )
+issuemore "address" "asset-identifier" quantity ( native-amount custom-fields )
+issuemorefrom "from-address" "to-address" "asset-identifier" quantity ( native-amount custom-fields )
+keypoolrefill ( newsize )
+listaccounts ( minconf includeWatchonly)
+listaddresses ( address(es) verbose count start ) 
+listaddressgroupings
+listaddresstransactions "address" ( count skip verbose )
+listassettransactions "asset-identifier" ( verbose count start local-ordering )
+listlockunspent
+listreceivedbyaccount ( minconf includeempty includeWatchonly )
+listreceivedbyaddress ( minconf includeempty includeWatchonly )
+listsinceblock ( blockhash target-confirmations includeWatchonly )
+liststreamblockitems "stream-identifier" block-set-identifier ( verbose count start )
+liststreamitems "stream-identifier" ( verbose count start local-ordering )
+liststreamkeyitems "stream-identifier" "key" ( verbose count start local-ordering )
+liststreamkeys "stream-identifier" ( key(s) verbose count start local-ordering )
+liststreampublisheritems "stream-identifier" "address" ( verbose count start local-ordering )
+liststreampublishers "stream-identifier" ( address(es) verbose count start local-ordering )
+listtransactions ( "account" count from includeWatchonly )
+listunspent ( minconf maxconf addresses )
+listwallettransactions ( count skip includeWatchonly verbose )
+lockunspent unlock [{"txid":"txid","vout":n},...]
+move "fromaccount" "toaccount" amount ( minconf "comment" )
+preparelockunspent asset-quantities ( lock )
+preparelockunspentfrom "from-address" asset-quantities ( lock )
+publish "stream-identifier" "key" "data-hex"
+publishfrom "from-address" "stream-identifier" "key" "data-hex"
+resendwallettransactions
+revoke "address(es)" "permission(s)" ( native-amount "comment" "comment-to" )
+revokefrom "from-address" "to-address(es)" "permission(s)" ( native-amount "comment" "comment-to" )
+send "address" amount|asset-quantities ( "comment" "comment-to" )
+sendasset "address" "asset-identifier" asset-qty ( native-amount "comment" "comment-to" )
+sendassetfrom "from-address" "to-address" "asset-identifier" asset-qty ( native-amount "comment" "comment-to" )
+sendfrom "from-address" "to-address" amount|asset-quantities ( "comment" "comment-to" )
+sendfromaccount "fromaccount" toaddress amount ( minconf "comment" "comment-to" )
+sendmany "fromaccount" {"address":amount,...} ( minconf "comment" )
+sendwithdata "address" amount|asset-quantities "data-hex"|object
+sendwithdatafrom "from-address" "to-address" amount|asset-quantities "data-hex"|object
+setaccount "address" "account"
+settxfee amount
+signmessage "address"|"privkey" "message"
+subscribe entity-identifier(s) ( rescan )
+unsubscribe entity-identifier(s)

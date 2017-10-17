@@ -1,19 +1,16 @@
 {
   "name": "bchain",
-  "dependencies": {},
+  "compileOnSave": true,
   "compilerOptions": {
-	  "lib": ["es2017", "dom"],
-	  "module": "commonjs",
-	  "moduleResolution": "node"
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "module": "commonjs",
+    "outDir": "dist",
   },
-  "exclude": [
-    "node_modules",
-    "dist/",
-    "test/"
+  "include": [
+    "src/**/*.ts"
   ],
-  "paths": {
-    "*": [
-      "typings/*"
-    ]
-  }
+  "exclude": [
+    "node_modules"
+  ]
 }
