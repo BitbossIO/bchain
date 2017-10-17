@@ -28,7 +28,6 @@ function runBasicTests() {
 function runRxjsTests() {
 	let getAssets = R.map((x: any) => x.vout[0].assets); 
 	bchain.searchRawTransactions('1Ur2ph9i9uSHM2c5WKHctB15qDrSPQ5bu9gM4c')
-		.map(x => x.result)
 		.map(getAssets)
 		.subscribe(new MyObserver('searchRawTransactions'));
 }

@@ -213,6 +213,7 @@ export class BChain {
 					throw new Error(`${data.response.statusCode} ${data.response.statusMessage}`);
 				return data.response.body;
 			})
+			.map(body => body.result)
 			;
 	}
 
