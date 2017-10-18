@@ -205,12 +205,13 @@ export class BChain {
 				json: true,
 				body: payload,
 				auth: this.auth
-				// auth: 'multichainrpc' + ":" + '6FvcobcXbS2UPXEmkVBof32B15fNMR9UPhVtUzvq6CCP',
 			})
-			// .do(data => console.log('response: ', data.response.statusCode, data.response.statusMessage))
 			.map(data => {
-				if(data.response.statusCode !== 200) 
-					throw new Error(`${data.response.statusCode} ${data.response.statusMessage}`);
+				if(data.response.statusCode !== 200) {
+					let body = '';
+					try {body = JSON.stringify(data.response.body.error)} catch(err) {}
+					throw new Error(`${data.response.statusCode} ${data.response.statusMessage} `+body);
+				}
 				return data.response.body;
 			})
 			.map(body => body.result)

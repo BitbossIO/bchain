@@ -1,6 +1,6 @@
 {
 	"name": "bchain",
-	"version": "1.0.5",
+	"version": "1.0.8",
 	"description": "bitcoin and multichain api utilizing ts and rxjs",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
