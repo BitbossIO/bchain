@@ -82,12 +82,12 @@ export class BChain {
 		unsubscribe: ['stream'],
 		//querying stream items
 		getTxOutData: ['txid', 'vout'],
-		listStreamKeyItems: ['stream', 'key', {'verbose': 'false'}, {'count': 10}, {'start': -10}, {'local-ordering': false}],
-		listStreamKeys: ['stream', {'key': '*'}, {'verbose': 'false'}, {'count': 10}, {'start': -10}, {'local-ordering': false}],
+		listStreamKeyItems: ['stream', 'key', {'verbose': false}, {'count': 10}, {'start': -10}, {'local-ordering': false}],
+		listStreamKeys: ['stream', {'key': '*'}, {'verbose': false}, {'count': 10}, {'start': -10}, {'local-ordering': false}],
 		listStreamItems: ['stream', {'verbose': 'false'}, {'count': 10}, {'start': -10}, {'local-ordering': false}],
-		listStreamPublisherItems: ['stream', 'address', {'verbose': 'false'}, {'count': 10}, {'start': -10}, {'local-ordering': false}],
-		listStreamPublishers: ['stream', {'address': '*'}, {'verbose': 'false'}, {'count': 10}, {'start': -10}, {'local-ordering': false}],
-		getStreamItem: ['stream', 'txid', {'verbose': 'false'}],
+		listStreamPublisherItems: ['stream', 'address', {'verbose': false}, {'count': 10}, {'start': -10}, {'local-ordering': false}],
+		listStreamPublishers: ['stream', {'address': '*'}, {'verbose': false}, {'count': 10}, {'start': -10}, {'local-ordering': false}],
+		getStreamItem: ['stream', 'txid', {'verbose': false}],
 		//publishing stream items
 		publish: ['stream', 'key', 'data'],
 		publishFrom: ['from', 'stream', 'key', 'data'],
@@ -273,7 +273,7 @@ export class BChain {
 	getrawmempool(verbose=0): Observable<any> { return this.call('getrawmempool', [verbose]);}
 	getRawTransaction(txid, verbose=0): Observable<any> { return this.call('getrawtransaction', [txid, verbose]);}
 	getRuntimeParams(): Observable<any> { return this.call('getruntimeparams', []);}
-	getStreamItem(stream, txid, verbose='false'): Observable<any> { return this.call('getstreamitem', [stream, txid, verbose]);}
+	getStreamItem(stream, txid, verbose=false): Observable<any> { return this.call('getstreamitem', [stream, txid, verbose]);}
 	getTotalBalances(minconf=1, includeWatchOnly=false, includeLocked=false): Observable<any> { return this.call('gettotalbalances', [minconf, includeWatchOnly, includeLocked]);}
 	getTxOut(txid, vout, unconfirmed=false): Observable<any> { return this.call('gettxout', [txid, vout, unconfirmed]);}
 	getTxOutData(txid, vout): Observable<any> { return this.call('gettxoutdata', [txid, vout]);}
@@ -301,10 +301,10 @@ export class BChain {
 	listLockUnspent(): Observable<any> { return this.call('listlockunspent', []);}
 	listPermissions(permissions='all', addresses='*', verbose=false): Observable<any> { return this.call('listpermissions', [permissions, addresses, verbose]);}
 	listStreamItems(stream, verbose='false', count=10, start=-10, local_ordering=false): Observable<any> { return this.call('liststreamitems', [stream, verbose, count, start, local_ordering]);}
-	listStreamKeyItems(stream, key, verbose='false', count=10, start=-10, local_ordering=false): Observable<any> { return this.call('liststreamkeyitems', [stream, key, verbose, count, start, local_ordering]);}
-	listStreamKeys(stream, key='*', verbose='false', count=10, start=-10, local_ordering=false): Observable<any> { return this.call('liststreamkeys', [stream, key, verbose, count, start, local_ordering]);}
-	listStreamPublisherItems(stream, address, verbose='false', count=10, start=-10, local_ordering=false): Observable<any> { return this.call('liststreampublisheritems', [stream, address, verbose, count, start, local_ordering]);}
-	listStreamPublishers(stream, address='*', verbose='false', count=10, start=-10, local_ordering=false): Observable<any> { return this.call('liststreampublishers', [stream, address, verbose, count, start, local_ordering]);}
+	listStreamKeyItems(stream, key, verbose=false, count=10, start=-10, local_ordering=false): Observable<any> { return this.call('liststreamkeyitems', [stream, key, verbose, count, start, local_ordering]);}
+	listStreamKeys(stream, key='*', verbose=false, count=10, start=-10, local_ordering=false): Observable<any> { return this.call('liststreamkeys', [stream, key, verbose, count, start, local_ordering]);}
+	listStreamPublisherItems(stream, address, verbose=false, count=10, start=-10, local_ordering=false): Observable<any> { return this.call('liststreampublisheritems', [stream, address, verbose, count, start, local_ordering]);}
+	listStreamPublishers(stream, address='*', verbose=false, count=10, start=-10, local_ordering=false): Observable<any> { return this.call('liststreampublishers', [stream, address, verbose, count, start, local_ordering]);}
 	listStreams(stream='*', verbose='false', count=undefined, start=undefined): Observable<any> { return this.call('liststreams', [stream, verbose, count, start]);}
 	listUnspent(minconf=1, maxconf=999999, receivers=[]): Observable<any> { return this.call('listunspent', [minconf, maxconf, receivers]);}
 	listupgrades(upgrade_identifiers='*'): Observable<any> { return this.call('listupgrades', [upgrade_identifiers]);}
